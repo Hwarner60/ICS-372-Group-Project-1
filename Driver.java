@@ -12,6 +12,8 @@ import java.time.format.DateTimeFormatter;
 public class Driver {
 
     public static void helloWorld() {
+
+        //This method uses System Time to print out a greeting to the user.
         String systemTime = String.valueOf(java.time.Clock.systemDefaultZone().instant());
             String time = systemTime.substring(11, systemTime.length() - 11);
         if (time.charAt(0) >= 0 && time.charAt(0) <= 11) {
@@ -26,6 +28,7 @@ public class Driver {
         }
         }
 
+        //Main method
     public static void main(String[] args) {
         helloWorld();
     }
