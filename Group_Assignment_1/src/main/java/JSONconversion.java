@@ -1,5 +1,5 @@
 public class JSONconversion {
-
+// Model
     private String dealership_id;
     private String vehicle_type;
     private String vehicle_manufacturer;
