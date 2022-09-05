@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 public class Converter {
-    public static void main(String[] args) {
+    public JsonArray Converter(){
         JsonParser parser = new JsonParser();
         try{
             Object obj = parser.parse(new FileReader("C:/Users/ahapp/IdeaProjects/ICS-372-Group-Project-1/Group_Assignment_1/src/main/java/Project1_input.json"));
@@ -20,11 +20,16 @@ public class Converter {
             JsonObject jsonObject = (JsonObject) obj;
             JsonArray cars = (JsonArray)jsonObject.get("car_inventory");
 
+            return cars;
+            /* Debug
             for(Object c : cars){
                 System.out.println(c);
-            }
+            }*/
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            System.out.println("File not Found");
         }
+        // Catch except return
+        return null;
     }
 }
