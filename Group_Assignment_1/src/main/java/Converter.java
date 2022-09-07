@@ -1,8 +1,5 @@
 import Models.Inventory;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.FileNotFoundException;
@@ -15,19 +12,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Converter {
-    public static JsonArray Converter(FileReader json){
-        JsonParser parser = new JsonParser();
+    public static List<Inventory> Converter(FileReader json){
 
         //Object obj = parser.parse(new FileReader("C:/Users/ahapp/IdeaProjects/ICS-372-Group-Project-1/Group_Assignment_1/src/main/java/Project1_input.json"));
-        Object obj = parser.parse(json);
+        JsonObject obj = JsonParser.parseReader(json).getAsJsonObject();
 
-        JsonObject jsonObject = (JsonObject) obj;
-        JsonArray cars = (JsonArray)jsonObject.get("car_inventory");
+        JsonArray jCars = obj.get("car_inventory").getAsJsonArray();
+
+        ArrayList<Inventory> cars = new ArrayList<>();
+
+        for(JsonElement c : jCars){
+            Inventory car = new Inventory(
+                    c.getAsJsonObject().get("dealership_id").getAsString(),
+                    c.getAsJsonObject().get("vehicle_type").getAsString(),
+                    c.getAsJsonObject().get("vehicle_manufacturer").getAsString(),
+                    c.getAsJsonObject().get("vehicle_model").getAsString(),
+                    c.getAsJsonObject().get("vehicle_id").getAsString(),
+                    c.getAsJsonObject().get("price").getAsInt(),
+                    c.getAsJsonObject().get("acquisition_date").getAsLong()
+
+            );
+
+            cars.add(car);
+        }
+
+        for(Inventory c : cars){
+            System.out.println(c);
+        }
 
         return cars;
-            /* Debug
-            for(Object c : cars){
-                System.out.println(c);
-            }*/
     }
 }
