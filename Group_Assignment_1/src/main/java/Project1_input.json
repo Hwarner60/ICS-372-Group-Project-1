@@ -28,7 +28,7 @@
     },
     {
       "dealership_id": "77338",
-      "Vehicle_type": "sports car",
+      "vehicle_type": "sports car",
       "vehicle_manufacturer": "Toyota",
       "vehicle_model": "Supra",
       "vehicle_id": "229393",
