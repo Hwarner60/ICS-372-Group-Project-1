@@ -28,9 +28,6 @@ public class Converters {
             cars.add(car);
         }
 
-        for(Inventory c : cars){
-            System.out.println(c);
-        }
 
         return cars;
     }
