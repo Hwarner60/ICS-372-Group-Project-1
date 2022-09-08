@@ -27,8 +27,6 @@ public class Converters {
 
             cars.add(car);
         }
-
-
         return cars;
     }
 }
