@@ -1,7 +1,10 @@
-public class Sedan extends Vehicle {
-    private int vehicleID, dealerID,vehiclePrice;
+public class Sedan implements Vehicle {
+
+    private int dealerID,vehiclePrice;
+    public int vehicleID;
     private long vehicleAcquisition;
     private String vehicleManufacturer, vehicleModel;
+    
     Sedan(int dealerID, String vehicleManufacturer, String vehicleModel, int vehicleID, int vehiclePrice, long vehicleAcquisition){
         this.dealerID = dealerID;
         this.vehicleManufacturer = vehicleManufacturer;
@@ -14,31 +17,43 @@ public class Sedan extends Vehicle {
 
     @Override
     public long getAcquisitionDate() {
-        // TODO Auto-generated method stub
-        return 1;
+        return vehicleAcquisition;
     }
 
     @Override
-    public void setAcquisitionDate() {
-        // TODO Auto-generated method stub
-        
+    public void setAcquisitionDate(long vehicleAcquisition) {
+        this.vehicleAcquisition = vehicleAcquisition;
     }
 
     @Override
     public int getDealerID() {
-        // TODO Auto-generated method stub
-        return 1;
+        return dealerID;
     }
 
     @Override
-    public void setDealerID() {
-        // TODO Auto-generated method stub
-        
+    public void setDealerID(int dealerID) {
+        this.dealerID = dealerID;        
+    }
+
+    @Override
+    public int getVehicleID() {
+        return vehicleID;
     }
 
     @Override
     public String toString() {
         return "Dealer ID: " + dealerID + " || " + "Vehicle Manufacturer: " + vehicleManufacturer + " || " + "Vehicle Model: " + vehicleModel +
         "\nVehicle ID: " + vehicleID + " || " + "Vehicle Price: " + vehiclePrice + " || " + "Date of Vehicle Acquisition: " + vehicleAcquisition;
+    }
+    
+    @Override
+    public int getVehiclePrice() {
+        return vehiclePrice;
+        
+    }
+
+    @Override
+    public void setVehiclePrice(int vehiclePrice) {
+        this.vehiclePrice = vehiclePrice;
     }
 }

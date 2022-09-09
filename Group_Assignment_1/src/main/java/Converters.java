@@ -13,9 +13,20 @@ public class Converters {
         JsonArray jCars = obj.get("car_inventory").getAsJsonArray();
 
         ArrayList<Inventory> cars = new ArrayList<>();
+        
+        ArrayList<String> allowedVehicles = new ArrayList<>();
+        allowedVehicles.add("suv");
+        allowedVehicles.add("pickup");
+        allowedVehicles.add("sports car");
+        allowedVehicles.add("sedan");
+
 
         for(JsonElement c : jCars){
-            Inventory car = new Inventory(
+
+            String vehicleTypeString = c.getAsJsonObject().get("vehicle_type").getAsString();
+
+            if(allowedVehicles.contains(vehicleTypeString)){
+                Inventory car = new Inventory(
                     c.getAsJsonObject().get("dealership_id").getAsString(),
                     c.getAsJsonObject().get("vehicle_type").getAsString(),
                     c.getAsJsonObject().get("vehicle_manufacturer").getAsString(), // <- Breaks on third iteration
@@ -23,9 +34,16 @@ public class Converters {
                     c.getAsJsonObject().get("vehicle_id").getAsString(),
                     c.getAsJsonObject().get("price").getAsInt(),
                     c.getAsJsonObject().get("acquisition_date").getAsLong()
-            );
+                );
 
-            cars.add(car);
+                cars.add(car);
+            }
+            else{
+                System.out.println("Vehicle Type of " + vehicleTypeString + " is not allowed for vehicle ID: " + c.getAsJsonObject().get("vehicle_id").getAsString());
+                System.out.println("Vehicle not added.");
+            }
+
+            
         }
         return cars;
     }

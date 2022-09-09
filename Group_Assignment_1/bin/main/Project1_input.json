@@ -1,0 +1,39 @@
+{
+  "car_inventory": [{
+    "dealership_id": "12513",
+    "vehicle_type": "suv",
+    "vehicle_manufacturer": "Ford",
+    "vehicle_model": "Explorer",
+    "vehicle_id": "48934j",
+    "price": 20123,
+    "acquisition_date": 1515354694451
+  },
+    {
+      "dealership_id": "12513",
+      "vehicle_type": "sedan",
+      "vehicle_manufacturer": "Tesla",
+      "vehicle_model": "Model 3",
+      "vehicle_id": "83883",
+      "price": 50444,
+      "acquisition_date": 1515354694451
+    },
+    {
+      "dealership_id": "12513",
+      "vehicle_type": "pickup",
+      "vehicle_manufacturer": "Chevy",
+      "vehicle_model": "Silverado",
+      "vehicle_id": "89343883",
+      "price": 70444,
+      "acquisition_date": 1515354694451
+    },
+    {
+      "dealership_id": "77338",
+      "vehicle_type": "sports car",
+      "vehicle_manufacturer": "Toyota",
+      "vehicle_model": "Supra",
+      "vehicle_id": "229393",
+      "price": 49889,
+      "acquisition_date": 1515354694451
+    }
+  ]
+}
