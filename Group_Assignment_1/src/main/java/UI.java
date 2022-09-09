@@ -8,12 +8,25 @@ import java.util.List;
 public class UI {
     public static void main(String[] args) throws FileNotFoundException {
 
-        // Change this to the FilePicker
-        Converters c = new Converters();
-        List<Inventory> al;
-        FileReader test = new FileReader("C:\\Users\\ahapp\\IdeaProjects\\ICS-372-Group-Project-1\\Group_Assignment_1\\src\\main\\java\\Project1_input.json");
+        JButton open = new JButton();
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setCurrentDirectory(new java.io.File("C:/Users"));
+        fileChooser.setDialogTitle("JSON file to Converter");
+        if(fileChooser.showOpenDialog(open) == JFileChooser.APPROVE_OPTION) {
 
-        al = c.FromJsonToInvArr(test);
+        }
+        
+        String fileAbsolutePath = fileChooser.getSelectedFile().getAbsolutePath();
+
+        System.out.println("The file you chose: " + fileAbsolutePath);
+
+        FileReader file = new FileReader(fileAbsolutePath);
+
+        Converters c = new Converters();
+
+        List<Inventory> listOfCars;
+
+        listOfCars = c.FromJsonToInvArr(file);
 
     }
 }
