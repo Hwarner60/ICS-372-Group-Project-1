@@ -1,4 +1,4 @@
-package Models;
+package Controller;
 
 import Models.Inventory;
 import com.google.gson.*;

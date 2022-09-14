@@ -1,5 +1,6 @@
-package Models;
+package View;
 
+import Controller.Converters;
 import Models.Inventory;
 
 import javax.swing.*;
