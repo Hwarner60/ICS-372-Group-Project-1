@@ -1,3 +1,5 @@
+package Models;
+
 import Models.Inventory;
 
 import javax.swing.*;

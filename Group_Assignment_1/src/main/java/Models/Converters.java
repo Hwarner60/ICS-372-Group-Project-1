@@ -1,6 +1,11 @@
+package Models;
+
 import Models.Inventory;
 import com.google.gson.*;
-
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;

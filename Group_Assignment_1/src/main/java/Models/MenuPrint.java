@@ -1,3 +1,5 @@
+package Models;
+
 public class MenuPrint {
 
     public String getMenuMessage(){
