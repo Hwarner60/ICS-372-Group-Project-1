@@ -17,4 +17,14 @@ public class Location {
   public void setIsActivatedStatus(boolean status) {
         isActivated = status;
     }
+  
+  public Location(String id, boolean status) {
+        dealer_id = id;
+        isActivated = status;
+    }
+
+    public Location() {
+
+    }
+
 }
