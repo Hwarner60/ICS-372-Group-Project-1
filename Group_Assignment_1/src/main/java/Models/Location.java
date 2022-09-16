@@ -6,7 +6,7 @@ import java.util.List;
 public class Location {
   
   private boolean isActivated = true;
-  private int dealer_id;
+  private String dealer_id;
   List<Inventory> listOfCarsAtLocation = new ArrayList<Inventory>();
   
   
