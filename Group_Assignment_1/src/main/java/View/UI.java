@@ -22,7 +22,6 @@ public class UI {
         Location loc = new Location();
         List<Location> listOfDealers = new ArrayList<>();
 
-
         System.out.println(message.getMenuMessage());
         String uiChoices = input.nextLine();
 
@@ -32,12 +31,12 @@ public class UI {
                 case "ReadJSON":
 
                     fileChooser.setCurrentDirectory(new java.io.File("C:/Users"));
-                    //Titles the text box
+                    // Titles the text box
                     fileChooser.setDialogTitle("JSON file to Converter");
-                    if(fileChooser.showOpenDialog(open) == JFileChooser.APPROVE_OPTION) {
+                    if (fileChooser.showOpenDialog(open) == JFileChooser.APPROVE_OPTION) {
 
                     }
-                    //Gets the absolute path of the file
+                    // Gets the absolute path of the file
                     String fileAbsolutePath = fileChooser.getSelectedFile().getAbsolutePath();
 
                     outputMessage2 = "The file you chose to read: " + fileAbsolutePath + ".\n";
@@ -52,16 +51,16 @@ public class UI {
 
                     break;
                 case "AddCar":
-                    //Add vehicle to a dealership JSON or command line style
+                    // Add vehicle to a dealership JSON or command line style
                     System.out.println("Enter the dealer id of the dealership: ");
                     String dealership_id = input.nextLine();
 
-                    for(int i = 0; i < listOfDealers.size(); i++){
+                    for (int i = 0; i < listOfDealers.size(); i++) {
 
-                        //If the vehicle acquisition status is false, dealer can't add cars
-                        if(listOfDealers.get(i).getIsActivatedStatus() == true) {
+                        // If the vehicle acquisition status is false, dealer can't add cars
+                        if (listOfDealers.get(i).getIsActivatedStatus() == true) {
 
-                            if (dealership_id.equals( listOfDealers.get(i).getDealer_id())) {
+                            if (dealership_id.equals(listOfDealers.get(i).getDealer_id())) {
 
                                 System.out.println("Enter the vehicle type? ");
                                 String vehicle_type = input.nextLine();
@@ -81,7 +80,8 @@ public class UI {
                                 System.out.println("Enter the acquisition date? ");
                                 long acquisition_date = input.nextLong();
 
-                                Inventory car = new Inventory(dealership_id, vehicle_type, vehicle_manufacturer, vehicle_model, vehicle_id, vehicle_price, acquisition_date);
+                                Inventory car = new Inventory(dealership_id, vehicle_type, vehicle_manufacturer,
+                                        vehicle_model, vehicle_id, vehicle_price, acquisition_date);
 
                                 listOfDealers.get(i).addToListOfCarsAtLocation(car);
                             } else {
@@ -97,14 +97,13 @@ public class UI {
                     System.out.println("Enter the dealer id of the dealership: ");
                     String dealerId = input.nextLine();
 
-                    for(int i = 0; i < listOfDealers.size(); i++) {
-                        if(dealerId.equals(listOfDealers.get(i).getDealer_id())) {
+                    for (int i = 0; i < listOfDealers.size(); i++) {
+                        if (dealerId.equals(listOfDealers.get(i).getDealer_id())) {
                             listOfDealers.get(i).setIsActivatedStatus(false);
-                            //Debug
+                            // Debug
                             System.out.println(listOfDealers.get(i).getDealer_id());
                             System.out.println(listOfDealers.get(i).getIsActivatedStatus());
-                        }
-                        else {
+                        } else {
                             outputMessage2 = "Dealer ID" + dealerId + " does not exist.\n";
                         }
                     }
@@ -114,11 +113,10 @@ public class UI {
                     System.out.println("Enter the dealer id of the dealership: ");
                     String idString = input.nextLine();
 
-                    for(int i = 0; i < listOfDealers.size(); i++) {
-                        if(idString.equals(listOfDealers.get(i).getDealer_id())) {
+                    for (int i = 0; i < listOfDealers.size(); i++) {
+                        if (idString.equals(listOfDealers.get(i).getDealer_id())) {
                             listOfDealers.get(i).setIsActivatedStatus(true);
-                        }
-                        else {
+                        } else {
                             outputMessage2 = "Dealer ID" + idString + " does not exist.\n";
                         }
                     }
@@ -127,13 +125,13 @@ public class UI {
                     outputMessage2 = "Checking status and dealership is " + loc.getIsActivatedStatus() + ".\n";
                     break;
                 case "ShowList":
-                    //Show list of all current vehicles from a dealership
+                    // Show list of all current vehicles from a dealership
                     break;
                 case "ExportAll":
-                    //Export all vehicles from a dealership into a single JSON file
+                    // Export all vehicles from a dealership into a single JSON file
                     break;
                 case "Create":
-                    //Create dealership
+                    // Create dealership
                     System.out.println("What is the integer ID for the new dealership? ");
                     String idResponse = input.nextLine();
 
@@ -142,16 +140,16 @@ public class UI {
                     listOfDealers.add(dealer);
                     break;
                 case "ShowDealer":
-                    //Prints out the available dealerships
-                    for(int i = 0; i < listOfDealers.size(); i++){
+                    // Prints out the available dealerships
+                    for (int i = 0; i < listOfDealers.size(); i++) {
                         outputMessage2 += "\nDealership ID:" + listOfDealers.get(i).getDealer_id() +
-                                          " Dealership Status: " + listOfDealers.get(i).getIsActivatedStatus() + "\n";
+                                " Dealership Status: " + listOfDealers.get(i).getIsActivatedStatus() + "\n";
                     }
                     System.out.println("\n");
 
                     break;
                 case "Exit":
-                    //Exits the program.
+                    // Exits the program.
                     break;
 
             }
@@ -164,11 +162,10 @@ public class UI {
 
             uiChoices = input.nextLine();
 
-            //resets outputMessage2
+            // resets outputMessage2
             outputMessage2 = "";
 
         }
-
 
     }
 

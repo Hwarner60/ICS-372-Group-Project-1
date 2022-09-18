@@ -9,9 +9,10 @@ public class Location {
     private String dealer_id;
     List<Inventory> listOfCarsAtLocation = new ArrayList<Inventory>();
 
-    public boolean getIsActivatedStatus(){
+    public boolean getIsActivatedStatus() {
         return isActivated;
     }
+
     public void setIsActivatedStatus(boolean status) {
         isActivated = status;
     }
@@ -19,15 +20,16 @@ public class Location {
     public String getDealer_id() {
         return dealer_id;
     }
+
     public void setDealer_id(String id) {
         dealer_id = id;
     }
 
-    public List getListOfCarsAtLocation() {
+    public List<Inventory> getListOfCarsAtLocation() {
         return listOfCarsAtLocation;
     }
 
-    public void addToListOfCarsAtLocation(Inventory car){
+    public void addToListOfCarsAtLocation(Inventory car) {
         listOfCarsAtLocation.add(car);
     }
 
