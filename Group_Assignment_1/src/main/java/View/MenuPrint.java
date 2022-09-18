@@ -8,11 +8,12 @@ public class MenuPrint {
                 AddCar - Add a car to a dealership\s
                 DealerOff - Turn off the dealership acquisition\s
                 DealerOn - Turn on the dealership acquisition\s
-                CheckStatus - Check acquisition status of dealership\s
                 ShowList - Show list of all current vehicles from a dealership\s
-                ExportAll - Export all vehicles from a dealership into a single JSON file\s
+                ExportFromDealer - Export all vehicles from a dealership into a single JSON file\s
                 Create - Create a dealership\s
-                ShowDealer - Exit Program
+                ShowDealer - Shows a list of all Dealers and Activation status\s
+                ShowAll - Console out all cars in the franchise\s
+                Exit - Exit Program
                 """;
         return message;
     }

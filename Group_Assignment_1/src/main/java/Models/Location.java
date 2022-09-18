@@ -9,6 +9,12 @@ public class Location {
     private String dealer_id;
     List<Inventory> listOfCarsAtLocation = new ArrayList<Inventory>();
 
+    public void getAllCarsID() {
+        for (Inventory i : listOfCarsAtLocation) {
+            System.out.println("Car ID: " + i.getVehicle_id());
+        }
+    }
+
     public boolean getIsActivatedStatus() {
         return isActivated;
     }

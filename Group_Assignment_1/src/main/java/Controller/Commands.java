@@ -12,6 +12,8 @@ import Models.Location;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
+import org.controlsfx.control.tableview2.filter.filtereditor.SouthFilter;
+
 public class Commands {
     JFileChooser fileChooser = new JFileChooser();
     JButton open = new JButton();
@@ -137,7 +139,7 @@ public class Commands {
         }
     }
 
-    public void ExportAll() {
+    public void ExportFromDealer() {
 
         System.out.println("What is the integer ID for the dealership? ");
         // Show dealers
@@ -169,6 +171,27 @@ public class Commands {
                     " Dealership Status: " + listOfDealers.get(i).getIsActivatedStatus() + "\n";
         }
         System.out.println("\n");
+
+    }
+
+    public void ShowAll() {
+        // old way
+        // for(int i = 0; i < listOfDealers.size(); i++){
+        // System.out.println(listOfDealers.get(i).getDealer_id());
+        // System.out.println("----------------------------------");
+        // for(Inventory inv : listOfDealers.get(i).getListOfCarsAtLocation()){
+        // System.out.println(inv.getVehicle_id());
+        // }
+
+        // }
+
+        for (int i = 0; i < listOfDealers.size(); i++) {
+            System.out.println("\nDealerId: " + listOfDealers.get(i).getDealer_id());
+            System.out.println("----------------------------\n");
+            listOfDealers.get(i).getAllCarsID();
+        }
+        System.out.println("Any key to continue");
+        input.nextLine();
 
     }
 
