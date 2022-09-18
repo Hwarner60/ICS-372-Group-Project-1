@@ -1,6 +1,7 @@
 package Controller;
 
 import Models.Inventory;
+import Models.Location;
 import com.google.gson.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -51,5 +52,29 @@ public class Converters {
             
         }
         return cars;
+    }
+
+    public void convertToJson(Location location){
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        //Json file location
+        String path = "D:\\2022 Semester 1\\CSI 372\\Project 1\\ICS-372-Group-Project-1\\Group_Assignment_1\\src\\main\\java\\Location_" + location.getDealer_id() + ".json";
+        File file = new File(path);
+        FileWriter fw;
+
+        try {
+            file.createNewFile();
+
+            fw = new FileWriter(file);
+
+            fw.write(gson.toJson(location));
+
+            fw.close();
+        } catch (IOException e) {
+            System.out.println("Error: Failed to create or write to Json File");
+            throw new RuntimeException(e);
+        }
+
     }
 }

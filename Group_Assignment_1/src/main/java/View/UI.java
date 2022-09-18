@@ -19,14 +19,15 @@ public class UI {
         JFileChooser fileChooser = new JFileChooser();
         Scanner input = new Scanner(System.in);
         MenuPrint message = new MenuPrint();
+
         Location loc = new Location();
         List<Location> listOfDealers = new ArrayList<>();
-
+        Converters c = new Converters();
 
         System.out.println(message.getMenuMessage());
         String uiChoices = input.nextLine();
 
-        while (!uiChoices.equals("Exit")) {
+        while (!uiChoices.equalsIgnoreCase("Exit")) {
 
             switch (uiChoices) {
                 case "ReadJSON":
@@ -44,11 +45,29 @@ public class UI {
 
                     FileReader file = new FileReader(fileAbsolutePath);
 
-                    Converters c = new Converters();
-
                     List<Inventory> listOfCars;
 
                     listOfCars = c.FromJsonToInvArr(file);
+
+                    //if listOfDealers is empty, add the dealer of the first car in listOfCars to listOfDealers
+                    if(listOfDealers.size() == 0 && listOfCars.size() > 0){
+                        listOfDealers.add(new Location(listOfCars.get(0).getDealership_id(), true));
+                    }
+                    //put cars from json file into dealers
+                    //create new dealer if car's dealership_id does not match any existing dealers
+                    for(Inventory car : listOfCars){
+                        for(int i = 0; i <  listOfDealers.size(); i++){
+                            Location dealer = listOfDealers.get(i);
+                            if(car.getDealership_id().equals(dealer.getDealer_id())){
+                                dealer.addToListOfCarsAtLocation(car);
+                                break;
+                            }
+                            if(dealer == listOfDealers.get(listOfDealers.size()-1)){
+                                listOfDealers.add(new Location(car.getDealership_id(), true));
+                            }
+
+                        }
+                    }
 
                     break;
                 case "AddCar":
@@ -131,6 +150,21 @@ public class UI {
                     break;
                 case "ExportAll":
                     //Export all vehicles from a dealership into a single JSON file
+
+                    System.out.println("What is the integer ID for the dealership? ");
+                    //Show dealers
+                    for(Location dealer : listOfDealers){
+                        System.out.println(dealer.getDealer_id());
+                    }
+                    String input1 = input.nextLine();
+
+                    for(int i = 0; i < listOfDealers.size(); i++){
+
+                        if(input1.equalsIgnoreCase(listOfDealers.get(i).getDealer_id())){
+                            c.convertToJson(listOfDealers.get(i));
+                        }
+                    }
+
                     break;
                 case "Create":
                     //Create dealership
