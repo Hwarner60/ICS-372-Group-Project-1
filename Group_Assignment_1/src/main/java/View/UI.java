@@ -19,48 +19,46 @@ public class UI {
         Scanner input = new Scanner(System.in);
         MenuPrint message = new MenuPrint();
 
-        Location loc = new Location();
-
         System.out.println(message.getMenuMessage());
-        String uiChoices = input.nextLine();
+        String uiChoices = input.nextLine().toLowerCase();
         Commands cmds = new Commands();
 
         while (!uiChoices.equalsIgnoreCase("Exit")) {
 
             switch (uiChoices) {
-                case "ReadJSON":
+                case "readjson":
                     cmds.ReadJSON();
                     break;
-                case "AddCar":
+                case "addcar":
                     // Add vehicle to a dealership JSON or command line style
                     cmds.AddCar();
 
                     break;
-                case "DealerOff":
+                case "dealeroff":
                     cmds.DealerOff();
                     break;
-                case "DealerOn":
+                case "dealeron":
                     cmds.DealerOn();
                     break;
-                case "CheckStatus":
-                    outputMessage2 = "Checking status and dealership is " + loc.getIsActivatedStatus() + ".\n";
-                    break;
-                case "ShowList":
+                case "showlist":
                     // Show list of all current vehicles from a dealership
                     break;
-                case "ExportAll":
+                case "exportfromdealer":
                     // Export all vehicles from a dealership into a single JSON file
-                    cmds.ExportAll();
+                    cmds.ExportFromDealer();
                     break;
-                case "Create":
+                case "create":
                     // Create dealership
                     cmds.Create();
                     break;
-                case "ShowDealer":
+                case "showdealer":
                     // Prints out the available dealerships
                     cmds.ShowDealer();
                     break;
-                case "Exit":
+                case "showall":
+                    cmds.ShowAll();
+                    break;
+                case "exit":
                     // Exits the program.
                     break;
 
