@@ -1,15 +1,9 @@
 package View;
 
-import Controller.Converters;
-import Controller.Commands;
-import Models.Inventory;
-import Models.Location;
-import javax.swing.*;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
+
+import Controller.Commands;
 
 public class UI {
     public static void main(String[] args) throws FileNotFoundException {
@@ -76,7 +70,7 @@ public class UI {
             outputMessage2 = "";
 
         }
-
+        input.close();
     }
 
 }
