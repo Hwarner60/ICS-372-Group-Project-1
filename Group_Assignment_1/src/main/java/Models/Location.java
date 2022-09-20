@@ -35,8 +35,15 @@ public class Location {
         return listOfCarsAtLocation;
     }
 
+    // this method will add a car to the list of cars at this current location unless isActivated is equal to false. This means that the location cannot acquire a new vehicle so the vehicle is not added.
     public void addToListOfCarsAtLocation(Inventory car) {
-        listOfCarsAtLocation.add(car);
+        if(isActivated){
+            listOfCarsAtLocation.add(car);
+        }
+        else{
+            System.out.println("Vehicle acquisition is currently disabled for the dealership of ID #" + dealer_id);
+            System.out.println("Vehicle not added.");
+        }
     }
 
     public Location(String id, boolean status) {

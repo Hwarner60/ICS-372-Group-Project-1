@@ -1,15 +1,21 @@
 package Controller;
 
-import Models.Inventory;
-import Models.Location;
-import com.google.gson.*;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import java.io.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import Models.Inventory;
+import Models.Location;
 
 public class Converters {
     public List<Inventory> FromJsonToInvArr(FileReader json) {
@@ -26,6 +32,7 @@ public class Converters {
         allowedVehicles.add("sports car");
         allowedVehicles.add("sedan");
 
+        //this enhanced for loop will iterate through each json element in a file and create a inventory object for each vehicle within the file
         for (JsonElement c : jCars) {
 
             String vehicleTypeString = c.getAsJsonObject().get("vehicle_type").getAsString();
@@ -51,6 +58,7 @@ public class Converters {
         return cars;
     }
 
+    //this method takes an input location such as a dealership and then it converts the list of vehicles for that location into a .json file into your C:\ drive
     public void convertToJson(Location location) {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
