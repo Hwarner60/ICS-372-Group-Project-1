@@ -12,7 +12,7 @@ import Models.Location;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
-import org.controlsfx.control.tableview2.filter.filtereditor.SouthFilter;
+
 
 public class Commands {
     JFileChooser fileChooser = new JFileChooser();
@@ -23,6 +23,7 @@ public class Commands {
 
     String outputMessage = "";
     String outputMessage2 = "";
+    boolean dealershipIDFound = false;
 
     Scanner input = new Scanner(System.in);
 
@@ -100,13 +101,17 @@ public class Commands {
                             vehicle_model, vehicle_id, vehicle_price, acquisition_date);
 
                     listOfDealers.get(i).addToListOfCarsAtLocation(car);
-                } else {
-                    outputMessage2 = "That dealership does not exist.\n";
+
                 }
+
             } else {
-                outputMessage2 = "That dealership is not receiving cars at the moment.\n";
+                System.out.println("That dealership is not receiving cars at the moment.\n");
+
+                System.out.println("Press enter to continue");
+                input.nextLine();
             }
         }
+
 
     }
 
@@ -117,13 +122,21 @@ public class Commands {
         for (int i = 0; i < listOfDealers.size(); i++) {
             if (dealerId.equals(listOfDealers.get(i).getDealer_id())) {
                 listOfDealers.get(i).setIsActivatedStatus(false);
-                // Debug
-                System.out.println(listOfDealers.get(i).getDealer_id());
-                System.out.println(listOfDealers.get(i).getIsActivatedStatus());
-            } else {
-                outputMessage2 = "Dealer ID" + dealerId + " does not exist.\n";
+
+                dealershipIDFound = true;
             }
+
         }
+
+        if(dealershipIDFound == false){
+            System.out.println("Dealership ID " + dealerId + " does not exist.\n");
+
+            System.out.println("Press enter to continue");
+            input.nextLine();
+        }
+
+        //resets dealershipIDFound
+        dealershipIDFound = false;
     }
 
     public void DealerOn() {
@@ -133,10 +146,20 @@ public class Commands {
         for (int i = 0; i < listOfDealers.size(); i++) {
             if (idString.equals(listOfDealers.get(i).getDealer_id())) {
                 listOfDealers.get(i).setIsActivatedStatus(true);
-            } else {
-                outputMessage2 = "Dealer ID" + idString + " does not exist.\n";
+
+                dealershipIDFound = true;
             }
         }
+
+        if(dealershipIDFound == false){
+            System.out.println("Dealership ID " + idString + " does not exist.\n");
+
+            System.out.println("Press enter to continue");
+            input.nextLine();
+        }
+
+        //resets dealershipIDFound
+        dealershipIDFound = false;
     }
 
     public void ExportFromDealer() {
@@ -167,10 +190,14 @@ public class Commands {
 
     public void ShowDealer() {
         for (int i = 0; i < listOfDealers.size(); i++) {
-            outputMessage2 += "\nDealership ID:" + listOfDealers.get(i).getDealer_id() +
-                    " Dealership Status: " + listOfDealers.get(i).getIsActivatedStatus() + "\n";
+            System.out.println("\nDealership ID:" + listOfDealers.get(i).getDealer_id() +
+                    " Dealership Status: " + listOfDealers.get(i).getIsActivatedStatus());
         }
         System.out.println("\n");
+
+        System.out.println("Press enter to continue");
+        input.nextLine();
+
 
     }
 
