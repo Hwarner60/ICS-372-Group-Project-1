@@ -66,7 +66,10 @@ public class Commands {
 
             }
         }
+
     }
+
+
 
     public void addCar() {
         outputMessage2 = "";

@@ -64,7 +64,7 @@ public class Converters {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         // Json file location
-        String path = "C:\\" + location.getDealer_id() + ".json";
+        String path = "D:\\" + location.getDealer_id() + ".json";
         File file = new File(path);
         FileWriter fw;
 
