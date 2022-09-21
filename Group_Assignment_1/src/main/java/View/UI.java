@@ -9,7 +9,7 @@ public class UI {
         String outputMessage = "";
         String outputMessage2 = "";
         Scanner input = new Scanner(System.in);
-        MenuPrint message = new MenuPrint();
+        MenuPrint message = new MenuPrint(); // MenuPrint object called message
 
         System.out.println(message.getMenuMessage()); // prints out the menu
         String uiChoices = input.nextLine().toLowerCase(); //uiChoices = USER INPUT
@@ -57,6 +57,8 @@ public class UI {
             }
 
             System.out.println(message.getMenuMessage());
+
+            outputMessage2 = cmds.printMessage2();
 
             outputMessage = "Action from option " + uiChoices + " completed. " + outputMessage2 +
                     "Please enter next command.";

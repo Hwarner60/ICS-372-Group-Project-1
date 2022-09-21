@@ -1,16 +1,16 @@
 package Controller;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import Models.Inventory;
 import Models.Location;
-
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+
+
+// This class has a list of methods called commands, that are called from UI class. Each method will perform a specific task.
 
 
 
@@ -88,7 +88,6 @@ public class Commands {
                     System.out.println("Enter the vehicle manufacturer? ");
                     String vehicle_manufacturer = input.nextLine();
 
-                    System.out.println("Enter the vehicle model? ");
                     String vehicle_model = input.nextLine();
 
                     System.out.println("Enter the vehicle id? ");
@@ -223,6 +222,10 @@ public class Commands {
         System.out.println("Any key to continue");
         input.nextLine();
 
+    }
+
+    public String printMessage2() {
+        return outputMessage2;
     }
 
 }

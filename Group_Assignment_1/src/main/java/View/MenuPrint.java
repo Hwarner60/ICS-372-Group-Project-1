@@ -4,7 +4,7 @@ public class MenuPrint {
 
     public String getMenuMessage() {
         String message = """
-                ReadJSON - Read JSON file from your C: drive\s
+                ReadJSON - Read JSON file from your C: drive(File chooser may appear behind this window)\s
                 AddCar - Add a car to a dealership\s
                 DealerOff - Turn off the dealership acquisition\s
                 DealerOn - Turn on the dealership acquisition\s
