@@ -17,6 +17,7 @@ import javax.swing.JFileChooser;
 public class Commands {
     JFileChooser fileChooser = new JFileChooser();
     JButton open = new JButton();
+
     List<Location> listOfDealers = new ArrayList<>();
 
     Converters c = new Converters();
@@ -33,6 +34,7 @@ public class Commands {
 
         // Titles the text box
         fileChooser.setDialogTitle("JSON file to Converter");
+        // pull up the file chooser and make current
         if (fileChooser.showOpenDialog(open) == JFileChooser.APPROVE_OPTION) {
 
         }

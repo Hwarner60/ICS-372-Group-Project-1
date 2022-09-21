@@ -1,8 +1,6 @@
 package View;
-
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
 import Controller.Commands;
 
 public class UI {
@@ -13,9 +11,9 @@ public class UI {
         Scanner input = new Scanner(System.in);
         MenuPrint message = new MenuPrint();
 
-        System.out.println(message.getMenuMessage());
-        String uiChoices = input.nextLine().toLowerCase();
-        Commands cmds = new Commands();
+        System.out.println(message.getMenuMessage()); // prints out the menu
+        String uiChoices = input.nextLine().toLowerCase(); //uiChoices = USER INPUT
+        Commands cmds = new Commands(); // instantiate Commands object called cmd to use its methods
 
         while (!uiChoices.equalsIgnoreCase("Exit")) {
 
