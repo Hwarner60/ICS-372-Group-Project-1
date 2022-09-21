@@ -30,6 +30,7 @@ public class Commands {
     public void ReadJSON() throws FileNotFoundException {
 
         fileChooser.setCurrentDirectory(new java.io.File("C:/Users"));
+
         // Titles the text box
         fileChooser.setDialogTitle("JSON file to Converter");
         if (fileChooser.showOpenDialog(open) == JFileChooser.APPROVE_OPTION) {
