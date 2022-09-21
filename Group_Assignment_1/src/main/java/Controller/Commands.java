@@ -27,6 +27,9 @@ public class Commands {
 
     Scanner input = new Scanner(System.in);
 
+    //reads User selected json and put cars into their corresponding dealer.
+    //if a car from a dealer that is not yet created is read, the dealer is created, and
+    //the car is stored in it
     public void readJSON() throws FileNotFoundException {
 
         fileChooser.setCurrentDirectory(new java.io.File("C:/Users"));
@@ -44,6 +47,7 @@ public class Commands {
 
         List<Inventory> listOfCars;
 
+        //list of cars contains all cars read from json file
         listOfCars = c.fromJsonToInvArr(file);
 
         // if listOfDealers is empty, add the dealer of the first car in listOfCars to
@@ -70,7 +74,7 @@ public class Commands {
     }
 
 
-
+    //takes user input to create a car object and put it into the users dealer of choice
     public void addCar() {
         outputMessage2 = "";
         System.out.println("Enter the dealer id of the dealership: ");
@@ -83,6 +87,7 @@ public class Commands {
 
                 if (dealership_id.equals(listOfDealers.get(i).getDealer_id())) {
 
+                    //User creates car
                     System.out.println("Enter the vehicle type? ");
                     String vehicle_type = input.nextLine();
 
@@ -104,6 +109,7 @@ public class Commands {
                     Inventory car = new Inventory(dealership_id, vehicle_type, vehicle_manufacturer,
                             vehicle_model, vehicle_id, vehicle_price, acquisition_date);
 
+                    //car is stored in user chosen dealer
                     listOfDealers.get(i).addToListOfCarsAtLocation(car);
 
                 }
@@ -119,7 +125,7 @@ public class Commands {
 
     }
 
-
+    //set dealer to no longer accept new incoming vehicles
     public void dealerOff() {
         outputMessage2 = "";
         System.out.println("Enter the dealer id of the dealership: ");
@@ -145,6 +151,7 @@ public class Commands {
         dealershipIDFound = false;
     }
 
+    //set dealer to accept new incoming vehicles
     public void dealerOn() {
         outputMessage2 = "";
         System.out.println("Enter the dealer id of the dealership: ");
@@ -169,6 +176,7 @@ public class Commands {
         dealershipIDFound = false;
     }
 
+    //takes a user chosen dealer and sends the dealer information to a json file
     public void exportFromDealer() {
         outputMessage2 = "";
         System.out.println("What is the integer ID for the dealership? ");
@@ -178,6 +186,7 @@ public class Commands {
         }
         String input1 = input.nextLine();
 
+        //finds dealer the user chooses and calls convertToJson to convert the dealer information into a json file
         for (int i = 0; i < listOfDealers.size(); i++) {
 
             if (input1.equalsIgnoreCase(listOfDealers.get(i).getDealer_id())) {
@@ -186,6 +195,7 @@ public class Commands {
         }
     }
 
+    //Create new location also known as dealer
     public void create() {
         outputMessage2 = "";
         System.out.println("What is the integer ID for the new dealership? ");
@@ -196,6 +206,7 @@ public class Commands {
         listOfDealers.add(dealer);
     }
 
+    //display the dealers and their activation status
     public void showDealer() {
         outputMessage2 = "";
         for (int i = 0; i < listOfDealers.size(); i++) {
@@ -210,6 +221,7 @@ public class Commands {
 
     }
 
+    //display all dealers and all cars at each dealer
     public void showAll() {
         outputMessage2 = "";
         // old way
@@ -221,6 +233,7 @@ public class Commands {
         // }
         // }
 
+        //loops though list of dealers, prints the dealer id and the car id of the cars at the dealer
         for (int i = 0; i < listOfDealers.size(); i++) {
             System.out.println("\nDealerId: " + listOfDealers.get(i).getDealer_id());
             System.out.println("----------------------------\n");
@@ -232,6 +245,7 @@ public class Commands {
 
     }
 
+    //display a user chosen dealer and the cars at that dealer
     public void showList(){
         System.out.println("What is the integer ID for the dealership? ");
         String idResponse = input.nextLine();
@@ -247,6 +261,7 @@ public class Commands {
         input.nextLine();
     }
 
+    //print commands the user can use
     public String printMessage2() {
         return outputMessage2;
     }

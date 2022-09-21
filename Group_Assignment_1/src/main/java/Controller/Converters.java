@@ -20,6 +20,7 @@ import Models.Location;
 public class Converters {
     public List<Inventory> fromJsonToInvArr(FileReader json) {
 
+
         JsonObject obj = JsonParser.parseReader(json).getAsJsonObject();
 
         JsonArray jCars = obj.get("car_inventory").getAsJsonArray();
@@ -49,6 +50,7 @@ public class Converters {
 
                 cars.add(car);
             } else {
+                //if a non allowed car is read, do not add it to cars
                 System.out.println("Vehicle Type of " + vehicleTypeString + " is not allowed for vehicle ID: "
                         + c.getAsJsonObject().get("vehicle_id").getAsString());
                 System.out.println("Vehicle not added.");
@@ -58,16 +60,17 @@ public class Converters {
         return cars;
     }
 
-    //this method takes an input location such as a dealership and then it converts the list of vehicles for that location into a .json file into your C:\ drive
+    //this method takes an input location such as a dealership and then it converts the list of vehicles for that location into a .json file into your D:\ drive
     public void convertToJson(Location location) {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         // Json file location
-        String path = "D:\\" + location.getDealer_id() + ".json";
+        String path = "C:\\Users\\Public\\" + location.getDealer_id() + ".json";
         File file = new File(path);
         FileWriter fw;
 
+        //create file and write the dealer inforamtion to it
         try {
             file.createNewFile();
 
@@ -80,6 +83,8 @@ public class Converters {
             System.out.println("Error: Failed to create or write to Json File");
             throw new RuntimeException(e);
         }
+
+        System.out.println("Your file was sent to C:\\Users\\Public");
 
     }
 }
