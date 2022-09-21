@@ -18,7 +18,7 @@ import Models.Inventory;
 import Models.Location;
 
 public class Converters {
-    public List<Inventory> FromJsonToInvArr(FileReader json) {
+    public List<Inventory> fromJsonToInvArr(FileReader json) {
 
         JsonObject obj = JsonParser.parseReader(json).getAsJsonObject();
 

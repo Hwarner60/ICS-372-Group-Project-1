@@ -19,35 +19,35 @@ public class UI {
 
             switch (uiChoices) {
                 case "readjson":
-                    cmds.ReadJSON();
+                    cmds.readJSON();
                     break;
                 case "addcar":
                     // Add vehicle to a dealership JSON or command line style
-                    cmds.AddCar();
+                    cmds.addCar();
                     break;
                 case "dealeroff":
-                    cmds.DealerOff();
+                    cmds.dealerOff();
                     break;
                 case "dealeron":
-                    cmds.DealerOn();
+                    cmds.dealerOn();
                     break;
                 case "showlist":
-                    cmds.ShowList();
+                    cmds.showList();
                     break;
                 case "exportfromdealer":
                     // Export all vehicles from a dealership into a single JSON file
-                    cmds.ExportFromDealer();
+                    cmds.exportFromDealer();
                     break;
                 case "create":
                     // Create dealership
-                    cmds.Create();
+                    cmds.create();
                     break;
-                case "showdealer":
+                case "showdealers":
                     // Prints out the available dealerships
-                    cmds.ShowDealer();
+                    cmds.showDealer();
                     break;
                 case "showall":
-                    cmds.ShowAll();
+                    cmds.showAll();
                     break;
                 case "exit":
                     // Exits the program.

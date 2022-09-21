@@ -27,7 +27,7 @@ public class Commands {
 
     Scanner input = new Scanner(System.in);
 
-    public void ReadJSON() throws FileNotFoundException {
+    public void readJSON() throws FileNotFoundException {
 
         fileChooser.setCurrentDirectory(new java.io.File("C:/Users"));
         // Titles the text box
@@ -44,7 +44,7 @@ public class Commands {
 
         List<Inventory> listOfCars;
 
-        listOfCars = c.FromJsonToInvArr(file);
+        listOfCars = c.fromJsonToInvArr(file);
 
         // if listOfDealers is empty, add the dealer of the first car in listOfCars to
         // listOfDealers
@@ -68,7 +68,7 @@ public class Commands {
         }
     }
 
-    public void AddCar() {
+    public void addCar() {
         outputMessage2 = "";
         System.out.println("Enter the dealer id of the dealership: ");
         String dealership_id = input.nextLine();
@@ -117,7 +117,7 @@ public class Commands {
     }
 
 
-    public void DealerOff() {
+    public void dealerOff() {
         outputMessage2 = "";
         System.out.println("Enter the dealer id of the dealership: ");
         String dealerId = input.nextLine();
@@ -142,7 +142,7 @@ public class Commands {
         dealershipIDFound = false;
     }
 
-    public void DealerOn() {
+    public void dealerOn() {
         outputMessage2 = "";
         System.out.println("Enter the dealer id of the dealership: ");
         String idString = input.nextLine();
@@ -166,7 +166,7 @@ public class Commands {
         dealershipIDFound = false;
     }
 
-    public void ExportFromDealer() {
+    public void exportFromDealer() {
         outputMessage2 = "";
         System.out.println("What is the integer ID for the dealership? ");
         // Show dealers
@@ -183,7 +183,7 @@ public class Commands {
         }
     }
 
-    public void Create() {
+    public void create() {
         outputMessage2 = "";
         System.out.println("What is the integer ID for the new dealership? ");
         String idResponse = input.nextLine();
@@ -193,7 +193,7 @@ public class Commands {
         listOfDealers.add(dealer);
     }
 
-    public void ShowDealer() {
+    public void showDealer() {
         outputMessage2 = "";
         for (int i = 0; i < listOfDealers.size(); i++) {
             System.out.println("\nDealership ID:" + listOfDealers.get(i).getDealer_id() +
@@ -207,7 +207,7 @@ public class Commands {
 
     }
 
-    public void ShowAll() {
+    public void showAll() {
         outputMessage2 = "";
         // old way
         // for(int i = 0; i < listOfDealers.size(); i++){
@@ -229,7 +229,7 @@ public class Commands {
 
     }
 
-    public void ShowList(){
+    public void showList(){
         System.out.println("What is the integer ID for the dealership? ");
         String idResponse = input.nextLine();
         outputMessage2 = "";

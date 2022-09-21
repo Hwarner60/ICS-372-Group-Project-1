@@ -11,7 +11,7 @@ public class MenuPrint {
                 ShowList - Show list of all current vehicles from a dealership\s
                 ExportFromDealer - Export all vehicles from a dealership into a single JSON file\s
                 Create - Create a dealership\s
-                ShowDealer - Shows a list of all Dealers and Activation status\s
+                ShowDealers - Shows a list of all Dealers and Activation status\s
                 ShowAll - Console out all cars in the franchise\s
                 Exit - Exit Program
                 """;
