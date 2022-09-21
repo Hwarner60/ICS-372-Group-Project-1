@@ -1,5 +1,6 @@
 package Models;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +45,13 @@ public class Location {
             System.out.println("Vehicle acquisition is currently disabled for the dealership of ID #" + dealer_id);
             System.out.println("Vehicle not added.");
         }
+    }
+
+    public String toString () {
+        for (Inventory i : listOfCarsAtLocation) {
+            System.out.println("Car ID: " + i.getVehicle_id() + " | Car Price: " + i.getPrice() + " | Car Acquisition Date: " + Instant.ofEpochMilli(i.getAcquisition_date()) + " | vehicle type: " + i.getVehicle_type() + " | vehicle manufacturer: " + i.getVehicle_manufacturer() + " | vehicle model: " + i.getVehicle_model());
+        }
+        return "";
     }
 
     public Location(String id, boolean status) {

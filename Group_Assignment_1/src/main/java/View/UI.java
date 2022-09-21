@@ -24,7 +24,6 @@ public class UI {
                 case "addcar":
                     // Add vehicle to a dealership JSON or command line style
                     cmds.AddCar();
-
                     break;
                 case "dealeroff":
                     cmds.DealerOff();
@@ -33,7 +32,7 @@ public class UI {
                     cmds.DealerOn();
                     break;
                 case "showlist":
-                    // Show list of all current vehicles from a dealership
+                    cmds.ShowList();
                     break;
                 case "exportfromdealer":
                     // Export all vehicles from a dealership into a single JSON file

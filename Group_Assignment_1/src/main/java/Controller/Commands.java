@@ -69,6 +69,7 @@ public class Commands {
     }
 
     public void AddCar() {
+        outputMessage2 = "";
         System.out.println("Enter the dealer id of the dealership: ");
         String dealership_id = input.nextLine();
 
@@ -85,6 +86,7 @@ public class Commands {
                     System.out.println("Enter the vehicle manufacturer? ");
                     String vehicle_manufacturer = input.nextLine();
 
+                    System.out.println("Enter the vehicle model? ");
                     String vehicle_model = input.nextLine();
 
                     System.out.println("Enter the vehicle id? ");
@@ -93,7 +95,7 @@ public class Commands {
                     System.out.println("Enter the vehicle price? ");
                     int vehicle_price = input.nextInt();
 
-                    System.out.println("Enter the acquisition date? ");
+                    System.out.println("Enter the acquisition date?(please enter 13 digit number)");
                     long acquisition_date = input.nextLong();
 
                     Inventory car = new Inventory(dealership_id, vehicle_type, vehicle_manufacturer,
@@ -114,7 +116,9 @@ public class Commands {
 
     }
 
+
     public void DealerOff() {
+        outputMessage2 = "";
         System.out.println("Enter the dealer id of the dealership: ");
         String dealerId = input.nextLine();
 
@@ -139,6 +143,7 @@ public class Commands {
     }
 
     public void DealerOn() {
+        outputMessage2 = "";
         System.out.println("Enter the dealer id of the dealership: ");
         String idString = input.nextLine();
 
@@ -162,7 +167,7 @@ public class Commands {
     }
 
     public void ExportFromDealer() {
-
+        outputMessage2 = "";
         System.out.println("What is the integer ID for the dealership? ");
         // Show dealers
         for (Location dealer : listOfDealers) {
@@ -179,6 +184,7 @@ public class Commands {
     }
 
     public void Create() {
+        outputMessage2 = "";
         System.out.println("What is the integer ID for the new dealership? ");
         String idResponse = input.nextLine();
 
@@ -188,6 +194,7 @@ public class Commands {
     }
 
     public void ShowDealer() {
+        outputMessage2 = "";
         for (int i = 0; i < listOfDealers.size(); i++) {
             System.out.println("\nDealership ID:" + listOfDealers.get(i).getDealer_id() +
                     " Dealership Status: " + listOfDealers.get(i).getIsActivatedStatus());
@@ -201,6 +208,7 @@ public class Commands {
     }
 
     public void ShowAll() {
+        outputMessage2 = "";
         // old way
         // for(int i = 0; i < listOfDealers.size(); i++){
         // System.out.println(listOfDealers.get(i).getDealer_id());
@@ -208,7 +216,6 @@ public class Commands {
         // for(Inventory inv : listOfDealers.get(i).getListOfCarsAtLocation()){
         // System.out.println(inv.getVehicle_id());
         // }
-
         // }
 
         for (int i = 0; i < listOfDealers.size(); i++) {
@@ -216,9 +223,25 @@ public class Commands {
             System.out.println("----------------------------\n");
             listOfDealers.get(i).getAllCarsID();
         }
+        System.out.println("\n");
         System.out.println("Any key to continue");
         input.nextLine();
 
+    }
+
+    public void ShowList(){
+        System.out.println("What is the integer ID for the dealership? ");
+        String idResponse = input.nextLine();
+        outputMessage2 = "";
+        for (int i = 0; i < listOfDealers.size(); i++) {
+            if ( idResponse.equals(listOfDealers.get(i).getDealer_id())) {
+                System.out.println("\nDealerId: " + listOfDealers.get(i).getDealer_id());
+                System.out.println("----------------------------\n");
+                listOfDealers.get(i).toString();
+            }
+        }
+        System.out.println("Any key to continue");
+        input.nextLine();
     }
 
     public String printMessage2() {
